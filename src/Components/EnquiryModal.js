@@ -25,7 +25,7 @@ class EnquiryModal extends Component {
             <Message
               success
               header='Aw yis! You are in!'
-              content='Your details were successfully registered.!'
+              content='Your details were successfully registered!'
             />
             <p>You've just been elevetated to legendary status. We can't wait to show you what we've been up to. But we're going to have to because the work must go on.</p>
             <p>But rest assured, you'll be one of the first to get a taste of how good broccoli can change your life.</p>

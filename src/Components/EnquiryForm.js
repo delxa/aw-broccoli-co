@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Formik, Field, } from 'formik'
+import { Formik, Field } from 'formik'
 import { Button, Form, Message } from 'semantic-ui-react'
 
 import { LeadParagraph } from './Styled/StyledComponents'
 
 class EnquiryForm extends Component {
-
   validate = values => {
     const errors = {}
     if (!values.name) {
@@ -20,7 +19,7 @@ class EnquiryForm extends Component {
       errors.email = 'Invalid email address'
     }
     if (!values.confirm) {
-      errors.confirm = 'Required';
+      errors.confirm = 'Required'
     } else if (values.email !== values.confirm) errors.confirm = 'Confirmation must match provided email address.'
     return errors
   }
@@ -30,7 +29,7 @@ class EnquiryForm extends Component {
     return (
       <div>
         <Formik
-          initialValues={{ name: '', email: '', confirm: ''}}
+          initialValues={{ name: '', email: '', confirm: '' }}
           validate={this.validate}
           onSubmit={onSubmit}
         >
@@ -52,19 +51,20 @@ class EnquiryForm extends Component {
               </Form.Field>
               <Form.Field error={touched.email && errors.email} required>
                 <label>Your email address</label>
-                <Field type='email' name='email' placeholder='allofthe@broccoli.zomg' />    
+                <Field type='email' name='email' placeholder='allofthe@broccoli.zomg' />
               </Form.Field>
               <Form.Field error={touched.confirm && errors.confirm} required>
                 <label>Confirm email address</label>
-                <Field type='email' name='confirm' placeholder='Yeah, we know it is 2020. Do it anyway.'  />
+                <Field type='email' name='confirm' placeholder='Yeah, we know it is 2020. Do it anyway.' />
               </Form.Field>
 
-              { failure && <Message
-                className='ui-enquiry-form-error'
-                error
-                header='Oh snap. It broked!'
-                content={failure}
-              /> }
+              {failure &&
+                <Message
+                  className='ui-enquiry-form-error'
+                  error
+                  header='Oh snap. It broked!'
+                  content={failure}
+                />}
               <Button
                 className='ui-enquiry-form-submit'
                 type='submit'

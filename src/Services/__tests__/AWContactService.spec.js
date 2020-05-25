@@ -1,22 +1,17 @@
-import axios from 'axios'
+/* eslint-env jest */
 import moxios from 'moxios'
 import AWContactService, { API } from '../AWContactService'
 
 const mockRequest = { name: 'Test', email: 'test@test.co', confirm: 'test@test.co' }
 
 describe('AWContactService', () => {
-
   describe('Class definition', () => {
-
     test('returns a singleton of AWContactService', () => {
       expect(API).toBeInstanceOf(AWContactService)
     })
-
   })
 
-
   describe('createEnquiry()', () => {
-
     beforeEach(function () {
       moxios.install()
     })
@@ -59,4 +54,3 @@ describe('AWContactService', () => {
     })
   })
 })
-

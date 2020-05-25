@@ -1,17 +1,17 @@
 # Broccoli & Co Landing Page
 
-A Code Challenge solution by Matt Bell. This is in a draft state, pending some more work.
+A Code Challenge solution by Matt Bell.
 
 ## tl;dr
 
 * It's written in React using Create React App, Redux, Styled Components, and Formik.
 * UI is mostly done using the wonderful Semantic UI (React bindings)
 * Clone the repo, `npm install` and `npm start` to make it run.
-* `npm test` to watch the unit tests run
-* `npm run cy:run` to watch the unit tests run headless or `npm run cy:open` to access via the Cypress app. (Requires app running on localhost:3000.)
+* `npm test` to watch the unit tests run. Also runs linting in Standard JS.
+* `npm run cy:run` to watch the unit tests run headless or `npm run cy:open` to access via the Cypress app. (Requires the frontend app running on `localhost:3000`)
 * This readme contains further ramblings on considerations taken during implementation
-* You can see it running in the Cloud at https://master.d27dqm222h0ug5.amplifyapp.com
-
+* You can see it running in the Cloud at https://broccoli.mattbell.name
+* Linting can be run separately using `npm run lint`
 
 ## Introduction
 

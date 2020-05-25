@@ -51,4 +51,3 @@ export function createEnquiry (body) {
       .catch(err => dispatch(createFailed(err.message)))
   }
 }
-

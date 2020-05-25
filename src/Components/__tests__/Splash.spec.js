@@ -1,16 +1,16 @@
+/* eslint-env jest */
 import React from 'react'
-import { mount, shallow } from 'enzyme'
+import { shallow } from 'enzyme'
 
 import { Splash } from '../Splash'
 
 describe('Splash', () => {
-
   test('Contains required elements', () => {
-    const wrapper = shallow(<Splash showEnquiryModal={()=>{}}/>)
+    const wrapper = shallow(<Splash showEnquiryModal={() => {}} />)
     expect(wrapper.find('.ui-title')).toExist()
     expect(wrapper.find('.ui-subtitle')).toExist()
     expect(wrapper.find('.ui-button-request-access')).toExist()
-  }) 
+  })
 
   test('clicking Request an invite triggers showEnquiryModal()', () => {
     const mockShowEnquiryModal = jest.fn()

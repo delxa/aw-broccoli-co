@@ -1,17 +1,18 @@
-import enquiryReducer from '../Enquiry' 
+/* eslint-env jest, mocha */
+
+import enquiryReducer from '../Enquiry'
 
 const initialState = {
   failure: false,
   creating: false,
   success: false,
   showModal: false
-};
+}
 
-
-describe("Enquiry Reducer", () => {
+describe('Enquiry Reducer', () => {
   let updatedState = {}
-  
-  test("handles SHOW_ENQUIRY_MODAL action", () => {
+
+  test('handles SHOW_ENQUIRY_MODAL action', () => {
     updatedState = {
       failure: false,
       creating: false,
@@ -21,21 +22,21 @@ describe("Enquiry Reducer", () => {
     expect(
       enquiryReducer(
         { ...initialState },
-        { type: "SHOW_ENQUIRY_MODAL" }
+        { type: 'SHOW_ENQUIRY_MODAL' }
       )
-    ).toEqual(updatedState);
+    ).toEqual(updatedState)
   })
 
-  test("handles HIDE_ENQUIRY_MODAL action", () => {
+  test('handles HIDE_ENQUIRY_MODAL action', () => {
     expect(
       enquiryReducer(
         { ...initialState, showModal: true },
-        { type: "HIDE_ENQUIRY_MODAL" }
+        { type: 'HIDE_ENQUIRY_MODAL' }
       )
-    ).toEqual(initialState);
+    ).toEqual(initialState)
   })
 
-  test("handles TOGGLE_ENQUIRY_MODAL action", () => {
+  test('handles TOGGLE_ENQUIRY_MODAL action', () => {
     updatedState = {
       failure: false,
       creating: false,
@@ -45,12 +46,12 @@ describe("Enquiry Reducer", () => {
     expect(
       enquiryReducer(
         { ...initialState },
-        { type: "TOGGLE_ENQUIRY_MODAL" }
+        { type: 'TOGGLE_ENQUIRY_MODAL' }
       )
-    ).toEqual(updatedState);
+    ).toEqual(updatedState)
   })
 
-  test("handles CREATED_ENQUIRY action", () => {
+  test('handles CREATED_ENQUIRY action', () => {
     updatedState = {
       failure: false,
       creating: false,
@@ -60,12 +61,12 @@ describe("Enquiry Reducer", () => {
     expect(
       enquiryReducer(
         { ...initialState, creating: true },
-        { type: "CREATED_ENQUIRY" }
+        { type: 'CREATED_ENQUIRY' }
       )
-    ).toEqual(updatedState);
+    ).toEqual(updatedState)
   })
 
-  test("handles CREATE_ENQUIRY action", () => {
+  test('handles CREATE_ENQUIRY action', () => {
     updatedState = {
       failure: false,
       creating: true,
@@ -75,12 +76,12 @@ describe("Enquiry Reducer", () => {
     expect(
       enquiryReducer(
         { ...initialState },
-        { type: "CREATE_ENQUIRY" }
+        { type: 'CREATE_ENQUIRY' }
       )
-    ).toEqual(updatedState);
+    ).toEqual(updatedState)
   })
 
- test("handles CREATE_ENQUIRY_FAILED action", () => {
+  test('handles CREATE_ENQUIRY_FAILED action', () => {
     updatedState = {
       failure: 'Because reasons',
       creating: false,
@@ -90,8 +91,8 @@ describe("Enquiry Reducer", () => {
     expect(
       enquiryReducer(
         { ...initialState, creating: true },
-        { type: "CREATE_ENQUIRY_FAILED", failure: 'Because reasons' }
+        { type: 'CREATE_ENQUIRY_FAILED', failure: 'Because reasons' }
       )
-    ).toEqual(updatedState);
+    ).toEqual(updatedState)
   })
 })

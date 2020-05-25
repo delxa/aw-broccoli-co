@@ -16,7 +16,6 @@ const initialState = {
 
 export default function enquiryReducer (state = initialState, action) {
   switch (action.type) {
-
     case CREATED_ENQUIRY:
       return Object.assign({}, state, {
         creating: false,

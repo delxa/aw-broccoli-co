@@ -4,7 +4,7 @@ import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import thunkMiddleware from 'redux-thunk'
 
-import './index.css';
+import './index.css'
 import 'semantic-ui-css/semantic.min.css'
 
 import broccoliApp from './Redux/Reducers'

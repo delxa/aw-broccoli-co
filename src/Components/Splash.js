@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Container, Grid } from 'semantic-ui-react'
 import { connect } from 'react-redux'
@@ -74,6 +75,10 @@ export const Splash = (props) => (
     <EnquiryModal />
   </SplashBack>
 )
+
+Splash.propTypes = {
+  showEnquiryModal: PropTypes.func.isRequired
+}
 
 export default connect(
   null,

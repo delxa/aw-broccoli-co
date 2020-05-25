@@ -1,28 +1,28 @@
 import React, { Component } from 'react'
-import { Formik, Field, } from 'formik';
+import PropTypes from 'prop-types'
+import { Formik, Field, } from 'formik'
 import { Button, Form, Message } from 'semantic-ui-react'
 
 import { LeadParagraph } from './Styled/StyledComponents'
 
-
 class EnquiryForm extends Component {
 
   validate = values => {
-    const errors = {};
+    const errors = {}
     if (!values.name) {
-      errors.name = 'Required';
+      errors.name = 'Required'
     }
     if (!values.email) {
-      errors.email = 'Required';
+      errors.email = 'Required'
     } else if (
       !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
     ) {
-      errors.email = 'Invalid email address';
+      errors.email = 'Invalid email address'
     }
     if (!values.confirm) {
       errors.confirm = 'Required';
     } else if (values.email !== values.confirm) errors.confirm = 'Confirmation must match provided email address.'
-    return errors;
+    return errors
   }
 
   render () {
@@ -81,6 +81,15 @@ class EnquiryForm extends Component {
       </div>
     )
   }
+}
+
+EnquiryForm.propTypes = {
+  failure: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.bool
+  ]).isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  creating: PropTypes.bool.isRequired
 }
 
 export default EnquiryForm

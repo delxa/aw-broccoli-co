@@ -22,7 +22,7 @@ Thank you for the opportunity to apply for this role. The above will get you sta
 * Try to maintain elegance but not over-engineer
 * Use some patterns I'm comfortable with, while trying some new stuff.
 * Make it look good and work well, irrespective of device.
-* Provide a nice variety of tests
+* Provide a nice variety (read: Cross-section) of tests (Unit)
 * Deployed to the cloud is good!
 
 
@@ -41,13 +41,15 @@ At a high-level, this is how the work unfolded:
 
 ## Considerations
 
-Here I go into a few topics and talk through the thinking behind each.
+Here, I go into a few topics and talk through the thinking behind each.
 
 ### Use of Redux
 
 Despite the relative simplicity of the requirements, I decided to use redux as it afforded a good amount of flexibility to extend the functionality if required (further API calls, etc). Because there's not a complicated chain of events, I decided against saga's as the additional power would have been lost on this use case.
 
 You'll note I've used multiple state containers, one decorating the Modal itself and the other decorating the Splash component. This approach gives us the flexibility to potentially have multiple triggers for opening the modal in different parts of the UI. (I use the approach to trigger the Feedback modal on Sixagonal.com)
+
+There's nothing fancy like selectors to speak of here.
 
 
 ### Styled-Components
@@ -61,7 +63,7 @@ One thing that stood out was the ability to not only define the elements to be s
 
 Before, I've used Redux Forms for managing form input but hated the fact that it called actions on the store used in the rest of the app for EVERY DAMNED KEYSTROKE. Aside from the fact that it definitely solves this problem, it's also really simple to wire up and build in things like validation.
 
-What hasn't been simple, and what I ran out of time to fix is a console log error, caused by Semantic UI attempting to automagically pass a prop to the Formik Field component and bouncing off the type-checking.
+What hasn't been simple, and what I ran out of time to fix is a console log error, caused by Semantic UI attempting to automagically pass a prop to the Formik Field component and bouncing off the type-checking. These will popup when running the app in dev, and when you run the tests.
 
 
 ### Axios over Fetch
@@ -85,13 +87,16 @@ Environments can be configured for different branches and short-lived preview en
 
 Life is too short to sweat every single detail and often-times, shipped is better than perfect. Here's the compromises I made throughout.
 
+
 ### It's pretty heavy
 
 1mb+ for a landing page is a bit rich. Realistically, avoiding Semantic UI and the Font-awesome icons would have dropped the size somewhat. Not having a background image, or heavily optimising it would make it lighter still.
 
+
 ### Structure could have been tighter
 
 Components could have been categorised more specifically and the Redux parts could have been expressed as ducks. I chose not to tackle these at this stage, deferring improvements to when the Broccoli & Co founders decide they are ready to go for a bit more website. :)
+
 
 ### Separate Config file
 
@@ -100,3 +105,6 @@ Typically, what I do for this is have a config.js in source that maps environmen
 Config items in source files is wickity-whack. Config in repos is less wickity-whack but still whack.
 
 
+### Could have done some E2E tests
+
+Yerp. I didn't do any. No Cypress up in here. Relying on unit tests along is not my favorite thing in the world. I might add these in after submission. I'm keen to see how they work on Amplify.

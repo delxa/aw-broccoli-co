@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { Button, Modal, Message } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 
@@ -49,6 +50,17 @@ export class EnquiryModal extends Component {
   }
 }
 
+EnquiryModal.propTypes = {
+  success: PropTypes.bool.isRequired,
+  creating: PropTypes.bool.isRequired,
+  failure: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.bool
+  ]).isRequired,
+  showModal: PropTypes.bool.isRequired,
+  createEnquiry: PropTypes.func.isRequired,
+  hideEnquiryModal: PropTypes.func.isRequired
+}
 
 export default connect(
   (state, ownProps) => ({

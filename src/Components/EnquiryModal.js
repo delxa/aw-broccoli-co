@@ -18,6 +18,7 @@ export class EnquiryModal extends Component {
       <Modal
         open={showModal}
         onClose={hideEnquiryModal}
+        className='ui-modal-enquiry'
       >
         <Modal.Header className='ui-modal-header'>{success ? 'All donesky!' : 'Request Early Access'}</Modal.Header>
         <Modal.Content>

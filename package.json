@@ -25,7 +25,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -43,6 +45,7 @@
     ]
   },
   "devDependencies": {
+    "cypress": "^4.6.0",
     "jest-enzyme": "^7.1.2",
     "moxios": "^0.4.0",
     "redux-mock-store": "^1.5.4"

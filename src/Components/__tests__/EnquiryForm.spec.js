@@ -8,13 +8,13 @@ describe('EnquiryForm', () => {
 
 
   test('renders error message when unsuccessful', () => {
-    const wrapper = mount(<EnquiryForm creating={false} success={false} />)
+    const wrapper = mount(<EnquiryForm creating={false} failure={'An error has occurred'} onSubmit={()=>{}} />)
     expect(wrapper.find('.ui-enquiry-form-error')).toExist()
   })
 
   // I ran out of time to make this one pass. Left it here to communicate my thinking
   test.skip('invalid input will show error state on field', async() => {
-    const wrapper = mount(<EnquiryForm failure={false} creating={false} />)
+    const wrapper = mount(<EnquiryForm failure={false} creating={false} onSubmit={()=>{}} />)
     await act(async () => {
       wrapper.find('input').at(0).simulate('focus')
       wrapper.find('input').at(0).simulate('blur')
@@ -30,7 +30,7 @@ describe('EnquiryForm', () => {
 
   test('invalid input will not call onSubmit()', async() => {
     const mockOnSubmit = jest.fn()
-    const wrapper = mount(<EnquiryForm onSubmit={mockOnSubmit} />)
+    const wrapper = mount(<EnquiryForm onSubmit={mockOnSubmit} failure={false} creating={false} />)
     await act(async () => {
       wrapper.find('.ui-enquiry-form-submit').at(1).simulate('click')
     })
@@ -39,7 +39,7 @@ describe('EnquiryForm', () => {
 
   test('valid input will call onSubmit()', async() => {
     const mockOnSubmit = jest.fn()
-    const wrapper = mount(<EnquiryForm onSubmit={mockOnSubmit} failure={false} />)
+    const wrapper = mount(<EnquiryForm onSubmit={mockOnSubmit} failure={false} creating={false} />)
     await act( async() => {
       wrapper.find('input').at(0).simulate('change', { target: { name: 'name', value: 'Test' } });
       wrapper.find('input').at(1).simulate('change', { target: { name: 'email', value: 'Test@test.com' } });

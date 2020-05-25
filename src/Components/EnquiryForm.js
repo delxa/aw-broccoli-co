@@ -59,12 +59,12 @@ class EnquiryForm extends Component {
                 <Field type='email' name='confirm' placeholder='Yeah, we know it is 2020. Do it anyway.'  />
               </Form.Field>
 
-              <Message
+              { failure && <Message
                 className='ui-enquiry-form-error'
                 error
                 header='Oh snap. It broked!'
                 content={failure}
-              /> 
+              /> }
               <Button
                 className='ui-enquiry-form-submit'
                 type='submit'

@@ -1,11 +1,6 @@
 import React from 'react'
-import {
-  Container,
-  Grid,
-  Button,
-  Modal
-} from 'semantic-ui-react'
 import styled from 'styled-components'
+import { Container, Grid } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 
 import { showEnquiryModal } from '../Redux/Actions/Enquiry'
@@ -20,6 +15,7 @@ const SplashBack = styled(VFlex)`
   background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url("/broccoli1.jpg");
   background-position: center;
   background-repeat: no-repeat;
+  padding-top: 46px;
 `
 
 const HeroTitle = styled.h1`
@@ -52,15 +48,25 @@ const SexyButton = styled(CustomButton)`
   }
 `
 
-let Splash = (props) => (
+export const Splash = (props) => (
   <SplashBack>
     <Container>
       <Grid stretched>
         <Grid.Row stretched>
           <Grid.Column textAlign='center' verticalAlign='middle'>
-            <HeroTitle>Broccoli, but not as you know it.</HeroTitle>
-            <HeroSubtitle>Leveraging the latest <Emphasis>machine learning</Emphasis> and <Emphasis>A.I. technologies</Emphasis> to bring you the <Emphasis>most-epic</Emphasis> broccoli, ever.</HeroSubtitle>
-            <p><SexyButton onClick={props.showEnquiryModal} color='green' size='large' inverted>Request an invite</SexyButton></p>
+            <HeroTitle className='ui-title'>Broccoli, but not as you know it.</HeroTitle>
+            <HeroSubtitle className='ui-subtitle'>Leveraging the latest <Emphasis>machine learning</Emphasis> and <Emphasis>A.I. technologies</Emphasis> to bring you the <Emphasis>most-epic</Emphasis> broccoli, ever.</HeroSubtitle>
+            <p>
+              <SexyButton
+                className='ui-button-request-access'
+                onClick={props.showEnquiryModal}
+                color='green'
+                size='large'
+                inverted
+              >
+                Request an invite
+              </SexyButton>
+            </p>
           </Grid.Column>
         </Grid.Row>
       </Grid>
@@ -69,11 +75,9 @@ let Splash = (props) => (
   </SplashBack>
 )
 
-Splash = connect(
+export default connect(
   null,
   dispatch => ({
     showEnquiryModal: () => dispatch(showEnquiryModal())
   })
 )(Splash)
-
-export default Splash

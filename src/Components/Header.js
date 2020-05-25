@@ -12,6 +12,10 @@ import { VFlex } from './Styled/StyledComponents'
 
 const HeaderContainer = styled(VFlex)`
   max-height: 46px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right:0;
 `
 const StyledMenu = styled(Menu)`
   && {

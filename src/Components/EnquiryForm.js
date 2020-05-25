@@ -26,7 +26,7 @@ class EnquiryForm extends Component {
   }
 
   render () {
-    const { success, failure, onSubmit, creating } = this.props
+    const { failure, onSubmit, creating } = this.props
     return (
       <div>
         <Formik
@@ -60,11 +60,19 @@ class EnquiryForm extends Component {
               </Form.Field>
 
               <Message
+                className='ui-enquiry-form-error'
                 error
                 header='Oh snap. It broked!'
                 content={failure}
               /> 
-              <Button type='submit' size='large' color='green' disabled={creating} loading={creating}>
+              <Button
+                className='ui-enquiry-form-submit'
+                type='submit'
+                size='large'
+                color='green'
+                disabled={creating}
+                loading={creating}
+              >
                 Submit
               </Button>
             </Form>

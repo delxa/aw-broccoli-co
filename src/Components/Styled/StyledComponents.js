@@ -1,9 +1,10 @@
 import styled from 'styled-components'
 
-/*
-  MB: I set these up in here, thinking I'd have a few repeated ones that I'd be using.
-      But because there's not much to this app... well, this is it!
-*/
+export const Page = styled.section`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+`
 
 export const VFlex = styled.div`
   flex: 1;

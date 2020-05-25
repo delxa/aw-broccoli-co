@@ -26,6 +26,19 @@ Thank you for the opportunity to apply for this role. The above will get you sta
 * Deployed to the cloud is good!
 
 
+## Things done
+
+At a high-level, this is how the work unfolded:
+
+* Bootstrapped the app using CRA
+* Started building the barebones compoennts representing parts of the UI
+* Brought in Semantic UI, styled-components and started making it look the goods
+* Brought in react and scaffolded actions and reducer to handle form submission and modal visibility
+* Created API wrapper service
+* Build modal and form, connecting state layers.
+
+
+
 ## Considerations
 
 Here I go into a few topics and talk through the thinking behind each.
@@ -46,7 +59,7 @@ One thing that stood out was the ability to not only define the elements to be s
 
 ### Formik
 
-Before, I've used Redux Forms for managing form input but hated the fact that it called actions on the store used in the rest of the app for EVERY DAMNED KEYSTROKE. Aside from the fact that it definitely solves this problem, it's also really simple to do the validation.
+Before, I've used Redux Forms for managing form input but hated the fact that it called actions on the store used in the rest of the app for EVERY DAMNED KEYSTROKE. Aside from the fact that it definitely solves this problem, it's also really simple to wire up and build in things like validation.
 
 What hasn't been simple, and what I ran out of time to fix is a console log error, caused by Semantic UI attempting to automagically pass a prop to the Formik Field component and bouncing off the type-checking.
 
@@ -61,6 +74,12 @@ I could have used fetch instead of Axios. One reason I like axios is the ability
 If you've come across a more comprehensive and thought-out UI libary, complete with React Bindings, I'd like to know. The Semantic UI Modal is a great component that works well and handles mobile well.
 
 
+### AWS Amplify CI/CD
+
+This is the greatest thing I've discovered this year. Amplify can be connected to a Github repo and easily configured to build, test and deploy your React app to one or more environments, scaffolding all of the AWS resources required. The container that builds and runs the tests, the S3 bucket and Cloudront distribution that hosts it, even the certificates to ensure it is served via HTTPS.
+
+Environments can be configured for different branches and short-lived preview environments can be set up for things like feature branches.  Honestly, it is way too easy to be a developer these days!
+
 
 ## Things I could have done better
 
@@ -74,6 +93,10 @@ Life is too short to sweat every single detail and often-times, shipped is bette
 
 Components could have been categorised more specifically and the Redux parts could have been expressed as ducks. I chose not to tackle these at this stage, deferring improvements to when the Broccoli & Co founders decide they are ready to go for a bit more website. :)
 
+### Separate Config file
 
+Typically, what I do for this is have a config.js in source that maps environment vars (`REACT_APP_BASEURL`) to keys in the object. Webpack swaps these out at build time. Config is imported where needed. Because I use AWS Amplify to deploy my apps, I am able to set the env vars there for each environment. For running local, I use a `local.env` file.
+
+Config items in source files is wickity-whack. Config in repos is less wickity-whack but still whack.
 
 

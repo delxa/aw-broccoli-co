@@ -46,7 +46,7 @@ export function toggleEnquiryModal () {
 export function createEnquiry (body) {
   return function (dispatch) {
     dispatch(creatingEnquiry())
-    API.createEnquiry(body)
+    return API.createEnquiry(body)
       .then(data => dispatch(createdEnquiry()))
       .catch(err => dispatch(createFailed(err.message)))
   }
